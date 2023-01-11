@@ -5,8 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/57aa70cf01.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="header">
+        <div class="logo">
+            <i class="fa-solid fa-check-double"></i>
+            <h1>To-Do List</h1>
+        </div>
+        <div class="toggle-nav">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="default-options">
+                <button class="inbox">
+                    <i class="fas fa-inbox"></i>
+                    Inbox
+                </button>
+                <button class="today">
+                    <i class="fa-solid fa-calendar-day"></i>
+                    Today
+                </button>
+                <button class="week">
+                    <i class="fa-solid fa-calendar-week"></i>
+                    This week
+                </button>
+            </div>
+            <h3>Projects</h3>
+            <div class="project-list"></div>
+            <button class="new-project">
+                <i class="fa-solid fa-plus"></i>
+                Add Project
+            </button>
+            <form id="nav-form" action="">
+                <label for="projectName">Name</label>
+                <input type="text" id="projectName" name="projectName" required>
+                <div class="project-btns">
+                    <button class="submit-project" type="submit">Add</button>
+                    <button class="cancel-project" type="button">Cancel</button>
+                </div>
+            </form>
+        </div>
+        <div class="project-view">
+
+        </div>
+    </div>
     
+
+    <script src="main.js"></script>
 </body>
 </html>
