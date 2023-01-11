@@ -1,0 +1,134 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Merriweather', sans-serif;
+}
+
+.header {
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header > .toggle-nav {
+    display: none;
+}
+
+.header > .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 25px;
+}
+
+.header > .logo i {
+    font-size: 45px;
+}
+
+.main {
+    height: calc(100vh - 103px);
+    display: flex;
+}
+
+.navbar {
+    width: 300px;
+    background-color: lightgray;
+    padding: 20px;
+}
+
+.default-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.default-options button, .navbar > .new-project {
+    background-color: lightgray;
+    border: none;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.default-options button:hover, .navbar > .new-project:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.navbar i {
+    font-size: 20px;
+}
+
+.navbar > .new-project {
+    width: 100%;
+}
+
+.navbar > .new-project.active {
+    display: none;
+}
+
+.navbar h3 {
+    margin: 15px;
+    font-size: 25px;
+}
+
+.navbar > .project-list {
+    display: flex;
+    flex-direction: column;
+    font-family: inherit;
+}
+
+.navbar form {
+    display: none;
+}
+
+.navbar form.active {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-family: inherit;
+}
+
+.navbar form > .project-btns {
+    display: flex;
+    gap: 10px;
+}
+
+.submit-project, .cancel-project {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.submit-project {
+    background-color: lightgreen;
+}
+
+.cancel-project {
+    background-color: #ffbebe;
+}
+
+input {
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+}
