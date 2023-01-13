@@ -12,6 +12,8 @@ body {
     font-family: 'Merriweather', sans-serif;
 }
 
+/* ----------- HEADER ------------ */
+
 .header {
     width: 100%;
     background-color: black;
@@ -41,6 +43,8 @@ body {
     height: calc(100vh - 103px);
     display: flex;
 }
+
+/* ------------ NAVBAR -------------- */
 
 .navbar {
     width: 300px;
