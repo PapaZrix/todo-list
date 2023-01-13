@@ -4,19 +4,19 @@ export default class Task {
         this.dueDate = dueDate
     }
 
-    setName(name) {
+    static setName(name) {
         this.name = name
     }
 
-    getName() {
+    static getName() {
         return this.name
     }
 
-    setDate(dueDate) {
+    static setDate(dueDate) {
         this.dueDate = dueDate
     }
 
-    getDate() {
+    static getDate() {
         return this.dueDate
     }
 }

@@ -6,31 +6,31 @@ export default class Project {
         this.tasks = []
     }
 
-    setName(name) {
+    static setName(name) {
         this.name = name
     }
 
-    getName() {
+    static getName() {
         return this.name
     }
 
-    setTasks(tasks) {
+    static setTasks(tasks) {
         this.tasks = tasks
     }
 
-    getTasks() {
+    static getTasks() {
         return this.tasks
     }
 
-    getTask(taskName) {
+    static getTask(taskName) {
         return this.tasks.find((task) => task.getName() === taskName)
     }
 
-    addTask(newTask, date) {
+    static addTask(newTask, date) {
         this.tasks.push(new Task(newTask, date))
     }
 
-    deleteTask(index) {
+    static deleteTask(index) {
         this.tasks.splice(index, 1)
     }
 }
