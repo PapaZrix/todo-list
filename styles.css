@@ -68,7 +68,9 @@ body {
     font-size: 15px;
 }
 
-.default-options button:hover, .navbar > .new-project:hover {
+.project-view > .add-task-btn:hover, 
+.default-options button:hover,
+.navbar > .new-project:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -112,6 +114,7 @@ body {
     gap: 10px;
 }
 
+.submit-btn, .cancel-btn, 
 .submit-project, .cancel-project {
     border: 1px solid rgba(0, 0, 0, 0.2);
     font-weight: bold;
@@ -122,11 +125,11 @@ body {
     margin-top: 10px;
 }
 
-.submit-project {
+.submit-btn, .submit-project {
     background-color: lightgreen;
 }
 
-.cancel-project {
+.cancel-btn, .cancel-project {
     background-color: #ffbebe;
 }
 
@@ -135,4 +138,90 @@ input {
     padding: 10px;
     font-size: 15px;
     border-radius: 5px;
+}
+
+/* ------------- PROJECT-VIEW ------------- */
+
+.project-view {
+    width: 900px;
+    padding: 20px 40px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.project-view > .top h1 {
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+
+.project-view > .add-task-btn {
+    width: 100%;
+    text-align: left;
+    background-color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.project-view > .add-task-btn.active {
+    display: none;
+}
+
+.form-div {
+    padding: 20px;
+    display: none;
+}
+
+.form-div.active {
+    display: block;
+}
+
+.project-view > .form-div > form {
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+    gap: 10px;
+    font-family: inherit;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-family: inherit;
+}
+
+.task {
+    padding: 10px;
+    border: none;
+    background-color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.task-date {
+    margin-left: auto;
+}
+
+.fa-x, .fa-pen-to-square {
+    cursor: pointer;
+    padding: 5px;
+}
+
+.fa-x:hover, .fa-pen-to-square:hover {
+    background-color: white;
+}
+
+.project-btns, .form-btns {
+    display: flex;
+    gap: 10px;
 }
