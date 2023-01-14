@@ -1,36 +1,36 @@
-import Task from "./task"
+import Task from "./task";
 
 export default class Project {
     constructor(name) {
-        this.name = name
-        this.tasks = []
+        this.name = name;
+        this.tasks = [];
     }
 
-    static setName(name) {
+    setName(name) {
         this.name = name
     }
 
-    static getName() {
+    getName() {
         return this.name
     }
 
-    static setTasks(tasks) {
+    setTasks(tasks) {
         this.tasks = tasks
     }
 
-    static getTasks() {
+    getTasks() {
         return this.tasks
     }
 
-    static getTask(taskName) {
+    getTask(taskName) {
         return this.tasks.find((task) => task.getName() === taskName)
+      }
+
+    addTask(newTask, date) {
+        this.tasks.push(new Task(newTask, date));
     }
 
-    static addTask(newTask, date) {
-        this.tasks.push(new Task(newTask, date))
-    }
-
-    static deleteTask(index) {
-        this.tasks.splice(index, 1)
+    deleteTask(index) {
+        this.tasks.splice(index, 1);
     }
 }

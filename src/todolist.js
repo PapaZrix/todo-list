@@ -1,6 +1,7 @@
 import Project from "./project"
+import Task from "./task"
 
-export default class Todolist {
+export default class TodoList {
     constructor() {
         this.projects = []
         this.projects.push(new Project("Inbox"))
@@ -8,23 +9,23 @@ export default class Todolist {
         this.projects.push(new Project("This week"))
     }
 
-    static setProjects(projects) {
+    setProjects(projects) {
         this.projects = projects
     }
 
-    static getProjects() {
+    getProjects() {
         return this.projects
     }
 
-    static getProject(projectName) {
+    getProject(projectName) {
         return this.projects.find((project) => project.getName() === projectName)
     }
 
-    static addProject(newProject) {
+    addProject(newProject) {
         this.projects.push(new Project(newProject))
     }
 
-    static deleteProject(index) {
+    deleteProject(index) {
         this.projects.splice(index, 1)
     }
 }
