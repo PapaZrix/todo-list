@@ -18,6 +18,7 @@ export const UI = (() => {
         renderTasks();
         initProjectButtons();
         renderProjects();
+        DOM();
     }
 
     // TASK LISTENERS 
@@ -132,6 +133,11 @@ export const UI = (() => {
         })
     }
 
+    const updateTasks = () => {
+        storage.updateTodayProject();
+        storage.updateWeekProject();
+    }
+
     // PROJECT LISTENERS
 
     const initProjectButtons = () => {
@@ -233,9 +239,16 @@ export const UI = (() => {
         loadProjectContent(projectName);
     }
 
-    const updateTasks = () => {
-        storage.updateTodayProject();
-        storage.updateWeekProject();
+    // DROPDOWN -> MOBILE
+    
+    const dropDown = () => {
+        const navbar = document.querySelector(".navbar");
+        navbar.classList.toggle("active");
+    }
+
+    const DOM = () => {
+        const dropIcon = document.querySelector(".toggle-nav");
+        dropIcon.addEventListener("click", dropDown);
     }
 
     return { initializePage };
