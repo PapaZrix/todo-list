@@ -14,6 +14,13 @@ export const UI = (() => {
 
     console.log(storage.getTodoList().getProject("Inbox").getTasks());
 
+    const initializePage = () => {
+        initTaskButtons();
+        renderTasks();
+        initProjectButtons();
+        renderProjects();
+    }
+
     // TASK LISTENERS 
 
     const initTaskButtons = () => {
@@ -226,10 +233,5 @@ export const UI = (() => {
         loadProjectContent(projectName);
     }
 
-    return { initTaskButtons, renderTasks, initProjectButtons, renderProjects }
-
-    // initTaskButtons();
-    // renderTasks();
-    // initProjectButtons();
-    // renderProjects();
+    return { initializePage };
 })();
