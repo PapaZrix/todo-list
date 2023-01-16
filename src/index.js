@@ -1,3 +1,3 @@
-import { UI } from "./UI";
+import { UI } from "./modules/UI";
 
 UI.initializePage();

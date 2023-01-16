@@ -2,6 +2,7 @@ import Storage from "./storage";
 import onLoad from "./default";
 
 export const UI = (() => {
+
     // SET UP NEW STORAGE OBJECT
     const storage = new Storage();
 
@@ -10,13 +11,8 @@ export const UI = (() => {
 
     // SET CURRENT PROJECT TO DEFAULT (0)
     storage.setCurrentProject(0);
-    console.log(storage.getCurrentProject());
 
-    console.log(storage.getTodoList().getProject("Inbox").getTasks());
-    console.log(storage.getTodoList().getProject("Today").getTasks());
-    console.log(storage.getTodoList().getProject("This week").getTasks());
-
-
+    // LOAD PAGE
     const initializePage = () => {
         initTaskButtons();
         renderTasks();
@@ -101,14 +97,15 @@ export const UI = (() => {
 
     const handleTask = (e) => {
         storage.setCurrentTask(storage.getCurrentProject(), e.target.parentNode.id);
-        console.log(storage.getCurrentTask());
 
+        // DELETE TASK
         if (e.target.classList.contains("fa-x")) {
             const projectName = document.querySelector(".project-name").textContent;
 
             storage.deleteTask(projectName, e.target.parentNode.id);
             renderTasks();
         }
+        // EDIT TASK
         if (e.target.classList.contains("fa-pen-to-square")) {            
             const submitBtn = document.querySelector(".submit-btn");
 
@@ -174,7 +171,6 @@ export const UI = (() => {
         e.preventDefault();
         const projectName = document.querySelector("#projectName").value;
         storage.addProject(projectName);
-        console.log(storage.getTodoList().projects);
         closeAddProject();
         renderProjects();
     }
