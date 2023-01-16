@@ -15,6 +15,7 @@ export const UI = (() => {
     console.log(storage.getTodoList().getProject("Inbox").getTasks());
 
     // TASK LISTENERS 
+
     const initTaskButtons = () => {
         const addTaskBtn = document.querySelector(".add-task-btn");
         const cancelTaskBtn = document.querySelector(".cancel-btn");
@@ -28,6 +29,7 @@ export const UI = (() => {
     }
 
     // TASK FUNCTIONS
+
     const openAddTask = () => {
         const addTaskBtn = document.querySelector(".add-task-btn");
         const formDiv = document.querySelector(".form-div");
@@ -127,9 +129,15 @@ export const UI = (() => {
     const initProjectButtons = () => {
         const addProjectBtn = document.querySelector(".new-project");
         const cancelProjectBtn = document.querySelector(".cancel-project");
-    
+        const projectForm = document.querySelector("#nav-form");
+        const projectList = document.querySelector(".project-list");
+        const defaultProjectList = document.querySelector(".default-options");
+        
         addProjectBtn.addEventListener("click", openAddProject);
         cancelProjectBtn.addEventListener("click", closeAddProject);
+        projectForm.addEventListener("submit", addProject);
+        projectList.addEventListener("click", handleProject);
+        defaultProjectList.addEventListener("click", openDefaultProjects);
     }
  
     const openAddProject = () => {
@@ -146,10 +154,82 @@ export const UI = (() => {
 
         projectForm.classList.remove("active");
         addProjectBtn.classList.remove("active");
+        projectForm.reset();
+    }
+
+    const addProject = (e) => {
+        e.preventDefault();
+        
+        const projectName = document.querySelector("#projectName").value;
+        storage.addProject(projectName);
+        console.log(storage.getTodoList().projects);
+        closeAddProject();
+        renderProjects();
+    }
+
+    const handleProject = (e) => {
+        // DELETE PROJECT
+        if (e.target.classList.contains("fa-x")) {
+            storage.deleteProject(e.target.parentNode.id);
+            renderProjects();
+            openProject("Inbox");
+            storage.setCurrentProject(0);
+            renderTasks();
+        } else {
+            // SWITCH PROJECTS
+            const projectName = e.target.childNodes[3].textContent;
+            openProject(projectName);
+            storage.setCurrentProject(e.target.id);
+            renderTasks();
+        }
+    }
+
+    const openDefaultProjects = (e) => {
+        const projectName = e.target.childNodes[1].textContent;
+        openProject(projectName);
+        storage.setCurrentProject(e.target.id);
+        renderTasks();
+    }
+
+    const renderProjects = () => {
+        const projectList = document.querySelector(".project-list");
+        projectList.innerHTML = "";
+
+        storage.getTodoList().projects.forEach((project, index) => {
+            if (project.name !== "Inbox" && project.name !== "Today" && project.name !== "This week") {
+                projectList.innerHTML += `               
+                <button class="project" id=${index}>
+                    <i class="fa-solid fa-list-check"></i>
+                    <p class="task-name">${project.name}</p>
+                    <i class="fa-solid fa-x"></i>
+                </button>`
+            }
+        })
+    }
+
+    const loadProjectContent = (projectName) => {
+        const projectView = document.querySelector(".project-view");
+        const container = document.querySelector(".top");
+        if (projectName === "Today" || projectName === "This week") {
+            projectView.innerHTML = `
+            <div class="top">
+                <h1 class="project-name">${projectName}</h1>
+            </div>
+            <div class="task-list"></div>
+            `;
+        } else {
+            container.innerHTML = `<h1 class="project-name">${projectName}</h1>`            
+        }
+
+        storage.getTodoList().getProject(projectName).getTasks();
+    }
+
+    const openProject = (projectName) => {
+        loadProjectContent(projectName);
     }
 
     initTaskButtons();
     renderTasks();
     initProjectButtons();
-
+    renderProjects();
 })();

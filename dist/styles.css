@@ -74,7 +74,8 @@ body {
 .project-view > .add-task-btn:hover, 
 .default-options button:hover,
 .navbar > .new-project:hover,
-.task:hover {
+.task:hover,
+.project:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -228,4 +229,20 @@ input {
 .project-btns, .form-btns {
     display: flex;
     gap: 10px;
+}
+
+.project {
+    background-color: lightgray;
+    border: none;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.project > .fa-x {
+    font-size: 15px;
+    margin-left: auto;
 }
