@@ -39,15 +39,19 @@ body {
     font-size: 45px;
 }
 
+/* ------------- MAIN --------------- */
+
 .main {
     height: calc(100vh - 103px);
+    width: 100%;
     display: flex;
 }
 
 /* ------------ NAVBAR -------------- */
 
 .navbar {
-    width: 300px;
+    /* width: 300px; */
+    min-width: 300px;
     background-color: lightgray;
     padding: 20px;
 }
