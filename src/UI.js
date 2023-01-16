@@ -13,6 +13,9 @@ export const UI = (() => {
     console.log(storage.getCurrentProject());
 
     console.log(storage.getTodoList().getProject("Inbox").getTasks());
+    console.log(storage.getTodoList().getProject("Today").getTasks());
+    console.log(storage.getTodoList().getProject("This week").getTasks());
+
 
     const initializePage = () => {
         initTaskButtons();
@@ -83,6 +86,7 @@ export const UI = (() => {
             storage.resetCurrentTask();
         }
 
+        updateTasks();
         closeAddTask();
         renderTasks();
     }
@@ -231,6 +235,11 @@ export const UI = (() => {
 
     const openProject = (projectName) => {
         loadProjectContent(projectName);
+    }
+
+    const updateTasks = () => {
+        storage.updateTodayProject();
+        storage.updateWeekProject();
     }
 
     return { initializePage };

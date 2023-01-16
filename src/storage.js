@@ -80,4 +80,16 @@ export default class Storage {
     getCurrentTask() {
         return this.currentTask
     }
+
+    updateTodayProject() {
+        const todoList = this.getTodoList()
+        todoList.updateTodayProject()
+        this.saveTodoList(todoList)
+    }
+
+    updateWeekProject() {
+        const todoList = this.getTodoList()
+        todoList.updateWeekProject()
+        this.saveTodoList(todoList)
+    }
 }
