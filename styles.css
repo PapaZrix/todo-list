@@ -246,3 +246,65 @@ input {
     font-size: 15px;
     margin-left: auto;
 }
+
+/* ----------- MEDIA QUERIES ----------- */
+
+@media (max-width: 650px) {
+    .header > .logo h1 {
+        font-size: 35px;
+    }
+
+    .header > .toggle-nav {
+        display: block;
+        font-size: 35px;
+        cursor: pointer;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .navbar.active {
+        width: 100%;
+        display: block;
+    }
+
+    .main {
+        height: calc(100vh - 84px);
+        flex-direction: column;
+    }
+
+    .project-view {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .header > .logo h1 {
+        font-size: 35px;
+    }
+
+    .header > .toggle-nav {
+        display: block;
+        font-size: 35px;
+        cursor: pointer;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .navbar.active {
+        width: 100%;
+        display: block;
+    }
+
+    .main {
+        height: calc(100vh - 84px);
+        flex-direction: column;
+    }
+
+    .project-view {
+        width: 100%;
+    }
+}
