@@ -208,17 +208,14 @@ export const UI = (() => {
     }
 
     const loadProjectContent = (projectName) => {
-        const projectView = document.querySelector(".project-view");
         const container = document.querySelector(".top");
+        container.innerHTML = `<h1 class="project-name">${projectName}</h1>`
         if (projectName === "Today" || projectName === "This week") {
-            projectView.innerHTML = `
-            <div class="top">
-                <h1 class="project-name">${projectName}</h1>
-            </div>
-            <div class="task-list"></div>
-            `;
+            const addTaskBtn = document.querySelector(".add-task-btn");
+            addTaskBtn.classList.add("active");
         } else {
-            container.innerHTML = `<h1 class="project-name">${projectName}</h1>`            
+            const addTaskBtn = document.querySelector(".add-task-btn");
+            addTaskBtn.classList.remove("active");
         }
 
         storage.getTodoList().getProject(projectName).getTasks();

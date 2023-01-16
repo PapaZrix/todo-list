@@ -1,5 +1,3 @@
-import Storage from "./storage";
-
 export default function onLoad(name) {
 
     const container = document.querySelector(".project-view");
