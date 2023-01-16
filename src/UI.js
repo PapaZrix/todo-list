@@ -122,15 +122,14 @@ export const UI = (() => {
         })
     }
 
-    initTaskButtons();
-    renderTasks();
-
     // PROJECT LISTENERS
 
     const initProjectButtons = () => {
         const addProjectBtn = document.querySelector(".new-project");
+        const cancelProjectBtn = document.querySelector(".cancel-project");
     
         addProjectBtn.addEventListener("click", openAddProject);
+        cancelProjectBtn.addEventListener("click", closeAddProject);
     }
  
     const openAddProject = () => {
@@ -141,6 +140,16 @@ export const UI = (() => {
         addProjectBtn.classList.add("active");
     }
 
+    const closeAddProject = () => {
+        const projectForm = document.querySelector("#nav-form");
+        const addProjectBtn = document.querySelector(".new-project");
+
+        projectForm.classList.remove("active");
+        addProjectBtn.classList.remove("active");
+    }
+
+    initTaskButtons();
+    renderTasks();
     initProjectButtons();
 
 })();
