@@ -50,7 +50,6 @@ body {
 /* ------------ NAVBAR -------------- */
 
 .navbar {
-    /* width: 300px; */
     min-width: 300px;
     background-color: lightgray;
     padding: 20px;
