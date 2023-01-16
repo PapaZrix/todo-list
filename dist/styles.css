@@ -70,7 +70,8 @@ body {
 
 .project-view > .add-task-btn:hover, 
 .default-options button:hover,
-.navbar > .new-project:hover {
+.navbar > .new-project:hover,
+.task:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
