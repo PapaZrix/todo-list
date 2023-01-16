@@ -140,6 +140,8 @@ export const UI = (() => {
         defaultProjectList.addEventListener("click", openDefaultProjects);
     }
  
+    // PROJECT FUNCTIONS
+
     const openAddProject = () => {
         const projectForm = document.querySelector("#nav-form");
         const addProjectBtn = document.querySelector(".new-project");
@@ -159,7 +161,6 @@ export const UI = (() => {
 
     const addProject = (e) => {
         e.preventDefault();
-        
         const projectName = document.querySelector("#projectName").value;
         storage.addProject(projectName);
         console.log(storage.getTodoList().projects);
@@ -225,8 +226,10 @@ export const UI = (() => {
         loadProjectContent(projectName);
     }
 
-    initTaskButtons();
-    renderTasks();
-    initProjectButtons();
-    renderProjects();
+    return { initTaskButtons, renderTasks, initProjectButtons, renderProjects }
+
+    // initTaskButtons();
+    // renderTasks();
+    // initProjectButtons();
+    // renderProjects();
 })();
