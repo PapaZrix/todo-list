@@ -8,13 +8,13 @@ export const UI = (() => {
     // GENERATE DEFAULT DOM 
     onLoad(storage.getTodoList().getProject("Inbox").getName());
 
-    // SET CURRENT PROJECT TO DEFAULT 
+    // SET CURRENT PROJECT TO DEFAULT (0)
     storage.setCurrentProject(0);
     console.log(storage.getCurrentProject());
 
     console.log(storage.getTodoList().getProject("Inbox").getTasks());
 
-    // TASK LISTENERS
+    // TASK LISTENERS 
     const initTaskButtons = () => {
         const addTaskBtn = document.querySelector(".add-task-btn");
         const cancelTaskBtn = document.querySelector(".cancel-btn");
@@ -27,6 +27,7 @@ export const UI = (() => {
         taskList.addEventListener("click", handleTask);
     }
 
+    // TASK FUNCTIONS
     const openAddTask = () => {
         const addTaskBtn = document.querySelector(".add-task-btn");
         const formDiv = document.querySelector(".form-div");
@@ -123,5 +124,23 @@ export const UI = (() => {
 
     initTaskButtons();
     renderTasks();
+
+    // PROJECT LISTENERS
+
+    const initProjectButtons = () => {
+        const addProjectBtn = document.querySelector(".new-project");
+    
+        addProjectBtn.addEventListener("click", openAddProject);
+    }
+ 
+    const openAddProject = () => {
+        const projectForm = document.querySelector("#nav-form");
+        const addProjectBtn = document.querySelector(".new-project");
+
+        projectForm.classList.add("active");
+        addProjectBtn.classList.add("active");
+    }
+
+    initProjectButtons();
 
 })();
