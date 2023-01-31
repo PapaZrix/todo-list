@@ -104,6 +104,7 @@ export const UI = (() => {
             const projectName = document.querySelector(".project-name").textContent;
 
             storage.deleteTask(projectName, e.target.parentNode.id);
+            updateTasks();
             renderTasks();
         }
         // EDIT TASK
